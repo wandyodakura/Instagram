@@ -24,7 +24,7 @@ class CommentsViewController: UIViewController {
 
         let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
         var comments = postData.comments
-        comments.append("\(name!) : \(commentsTextField.text!)")
+        comments.append("\(name!): \(commentsTextField.text!)")
         let updateComments = ["comments": comments]
         postRef.updateChildValues(updateComments)
         self.dismiss(animated: true, completion: nil)

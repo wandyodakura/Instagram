@@ -39,7 +39,7 @@ class PostTableViewCell: UITableViewCell{
     func setPostData(postData: PostData) {
         self.postImageView.image = postData.image
         //commentsをcaptionの中に改行しながら追加する(yet)lesson3for文を参考に
-        self.captionLabel.text = "\(postData.name!) : \(postData.caption!):\(postData.comments)"
+        self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
         
@@ -52,8 +52,9 @@ class PostTableViewCell: UITableViewCell{
         
         
         
-        for comments in 1...1 {
-            print(comments)
+        for comment in postData.comments {
+            print(comment)
+            self.captionLabel.text="\(self.captionLabel.text!)\n\(comment)"
         }
         
         if postData.isLiked {
